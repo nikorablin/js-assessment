@@ -1,11 +1,7 @@
-if ( typeof window === 'undefined' ) {
-  require('../../app/recursion');
-  var expect = require('chai').expect;
-  var _ = require('underscore');
-}
+import { recursion } from "./recursion";
 
 describe('recursion', function() {
-  var fileData = {
+  const fileData = {
     dir: 'app',
     files: [
       'index.html',
@@ -35,24 +31,24 @@ describe('recursion', function() {
   };
 
   it('you should be able to return a list of files from the data', function() {
-    var result = recursionAnswers.listFiles(fileData);
-    expect(result.length).to.eql(8);
-    expect(result.indexOf('index.html') > -1).to.be.ok;
-    expect(result.indexOf('main.js') > -1).to.be.ok;
-    expect(result.indexOf('underscore.js') > -1).to.be.ok;
+    const result = recursion.listFiles(fileData);
+    expect(result.length).toBe(8);
+    expect(result).toContain('index.html');
+    expect(result).toContain('main.js');
+    expect(result).toContain('underscore.js');
   });
 
   it('you should be able to return a list of files in a subdir', function() {
-    var result = recursionAnswers.listFiles(fileData, 'js');
-    expect(result.length).to.eql(5);
-    expect(result.indexOf('main.js') > -1).to.be.ok;
-    expect(result.indexOf('underscore.js') > -1).to.be.ok;
+    const result = recursion.listFiles(fileData, 'js');
+    expect(result.length).toBe(5);
+    expect(result).toContain('main.js');
+    expect(result).toContain('underscore.js');
   });
 });
 
 describe('permutation', function() {
-  var arr = [ 1, 2, 3, 4 ];
-  var answer = [
+  const arr = [ 1, 2, 3, 4 ];
+  const answer = [
     [1, 2, 3, 4],
     [1, 2, 4, 3],
     [1, 3, 2, 4],
@@ -80,28 +76,28 @@ describe('permutation', function() {
   ];
 
   it('you should be able to return the permutations of an array', function() {
-    var result = recursionAnswers.permute(arr);
-    var resultStrings = _.map(result, function(r) { return r.join(''); });
+    const result = recursion.permute(arr);
+    const resultStrings = result.map((r) => r.join(''));
 
-    expect(result.length).to.eql(answer.length);
+    expect(result.length).toBe(answer.length);
 
-    _.each(answer, function(a) {
-      expect(resultStrings.indexOf(a.join('')) > -1).to.be.ok;
+    answer.forEach((a) => {
+      expect(resultStrings).toContain(a.join(''));
     });
   });
 
   it('you should be able to return the nth number in a fibonacci sequence', function() {
-    expect(recursionAnswers.fibonacci(2)).to.eql(1);
-    expect(recursionAnswers.fibonacci(6)).to.eql(8);
+    expect(recursion.fibonacci(2)).toBe(1);
+    expect(recursion.fibonacci(6)).toBe(8);
   });
 
   it('you should be able to return the set of all valid combinations of n pairs of parentheses.', function() {
     var expected = [ '((()))', '(()())', '(())()', '()(())', '()()()'];
-    var result = recursionAnswers.validParentheses(3);
+    var result = recursion.validParentheses(3);
 
-    expect(result.length).to.eql(5);
-    _.each(expected, function(c) {
-      expect(result).to.contain(c);
+    expect(result.length).toBe(5);
+    expected.forEach((c) => {
+      expect(result).toContain(c);
     });
   });
 });

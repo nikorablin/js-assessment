@@ -1,27 +1,25 @@
-exports = typeof window === 'undefined' ? global : window;
-
-exports.regexAnswers = {
-  containsNumber: function(str) {
+export const regex = {
+  containsNumber(str) {
 
   },
 
-  containsRepeatingLetter: function(str) {
+  containsRepeatingLetter(str) {
 
   },
 
-  endsWithVowel: function(str) {
+  endsWithVowel(str) {
 
   },
 
-  captureThreeNumbers: function(str) {
+  captureThreeNumbers(str) {
 
   },
 
-  matchesPattern: function(str) {
+  matchesPattern(str) {
 
   },
 
-  isUSD: function(str) {
+  isUSD(str) {
 
   }
 };

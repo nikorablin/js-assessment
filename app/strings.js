@@ -1,15 +1,13 @@
-exports = typeof window === 'undefined' ? global : window;
-
-exports.stringsAnswers = {
-  reduceString: function(str, amount) {
+export const strings = {
+  reduceString(str, amount) {
 
   },
 
-  wordWrap: function(str, cols) {
+  wordWrap(str, cols) {
 
   },
 
-  reverseString: function(str) {
+  reverseString(str) {
 
   }
 };

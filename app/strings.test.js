@@ -1,51 +1,48 @@
-if ( typeof window === 'undefined' ) {
-  require('../../app/strings');
-  var expect = require('chai').expect;
-}
+import {strings} from './strings';
 
 describe('strings', function() {
   it('you should be able to reduce duplicate characters to a desired minimum', function() {
-    expect(stringsAnswers.reduceString('aaaabbbb', 2)).to.eql('aabb');
-    expect(stringsAnswers.reduceString('xaaabbbb', 2)).to.eql('xaabb');
-    expect(stringsAnswers.reduceString('aaaabbbb', 1)).to.eql('ab');
-    expect(stringsAnswers.reduceString('aaxxxaabbbb', 2)).to.eql('aaxxaabb');
+    expect(strings.reduceString('aaaabbbb', 2)).toBe('aabb');
+    expect(strings.reduceString('xaaabbbb', 2)).toBe('xaabb');
+    expect(strings.reduceString('aaaabbbb', 1)).toBe('ab');
+    expect(strings.reduceString('aaxxxaabbbb', 2)).toBe('aaxxaabb');
   });
 
   it('you should be able to wrap lines at a given number of columns, without breaking words', function() {
-    var wrapCol = 5;
-    var inputStrings = [
+    const wrapCol = 5;
+    const inputStrings = [
       'abcdef abcde abc def',
       'abc abc abc',
       'a b c def'
     ];
-    var outputStrings = [
+    const outputStrings = [
       'abcdef\nabcde\nabc\ndef',
       'abc\nabc\nabc',
       'a b c\ndef'
     ];
-    var formattedStr;
+    let formattedStr;
 
     inputStrings.forEach(function(str, index) {
-      formattedStr = stringsAnswers.wordWrap(str, wrapCol);
-      expect(formattedStr).to.eql(outputStrings[index]);
+      formattedStr = strings.wordWrap(str, wrapCol);
+      expect(formattedStr).toBe(outputStrings[index]);
     });
   });
 
   it('you should be able to reverse a string', function() {
-    var inputStrings = [
+    const inputStrings = [
       'abc',
       'i am a string of characters',
       'A man, a plan, a canal: Panama'
     ];
-    var outputStrings = [
+    const outputStrings = [
       'cba',
       'sretcarahc fo gnirts a ma i',
       'amanaP :lanac a ,nalp a ,nam A'
     ];
 
     inputStrings.forEach(function(str, index) {
-      var result = stringsAnswers.reverseString(str);
-      expect(result).to.eql(outputStrings[index]);
+      const result = strings.reverseString(str);
+      expect(result).toBe(outputStrings[index]);
     });
   });
 });

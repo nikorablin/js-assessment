@@ -1,39 +1,32 @@
-exports = typeof window === 'undefined' ? global : window;
-
-exports.functionsAnswers = {
-  argsAsArray: function(fn, arr) {
+export const functions = {
+  argsAsArray: (fn, arr) => {
 
   },
 
-  speak: function(fn, obj) {
+  functionFunction: (str) => {
 
   },
 
-  functionFunction: function(str) {
+  makeClosures: (arr, fn) => {
 
   },
 
-  makeClosures: function(arr, fn) {
+  partial: (fn, str1, str2) => {
 
   },
 
-  partial: function(fn, str1, str2) {
+  useArguments: (...args) => {
 
   },
 
-  useArguments: function() {
+  callIt: (fn, ...args) => {
 
   },
 
-  callIt: function(fn) {
+  partialUsingArguments: (fn, ...args) => {
 
   },
 
-  partialUsingArguments: function(fn) {
-
-  },
-
-  curryIt: function(fn) {
-
+  curry: (fn) => {
   }
 };

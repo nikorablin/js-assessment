@@ -1,11 +1,9 @@
-exports = typeof window === 'undefined' ? global : window;
-
-exports.logicalOperatorsAnswers = {
-  or: function(a, b) {
+export const logicalOperators = {
+  or(a, b) {
 
   },
 
-  and: function(a, b) {
+  and(a, b) {
 
   }
 };
